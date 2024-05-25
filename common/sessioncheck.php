@@ -1,7 +1,7 @@
 <?php
 session_start();
    
-  //THIS IS FOR ONLY DEVELPOMENT
+  //THIS IS FOR ONLY DEVELPOMENT PURPOSE 
   $_SESSION['loggedin']=true;
   $_SESSION['user_id'] = 'user1';
   //...END

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2024 at 01:10 PM
+-- Generation Time: May 25, 2024 at 06:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,22 +52,24 @@ INSERT INTO `blog_media` (`media_id`, `post_id`, `media_name`) VALUES
 
 CREATE TABLE `blog_user` (
   `user_id` varchar(30) NOT NULL,
-  `user_name` varchar(30) NOT NULL,
-  `user_email` varchar(30) NOT NULL,
-  `user_password` varchar(100) NOT NULL,
-  `user_status` int(11) NOT NULL
+  `user_name` varchar(30) DEFAULT NULL,
+  `user_email` varchar(30) DEFAULT NULL,
+  `user_password` varchar(100) DEFAULT NULL,
+  `user_image` varchar(255) DEFAULT NULL,
+  `user_bio` text DEFAULT NULL,
+  `user_status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `blog_user`
 --
 
-INSERT INTO `blog_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_status`) VALUES
-('user1', 'John Doe', 'john.doe@example.com', '0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e', 1),
-('user2', 'Jane Smith', 'jane.smith@example.com', '6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4', 1),
-('user3', 'Alice Johnson', 'alice.johnson@example.com', '5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764', 2),
-('user4', 'Bob Brown', 'bob.brown@example.com', 'b97873a40f73abedd8d685a7cd5e5f85e4a9cfb83eac26886640a0813850122b', 1),
-('user5', 'Carol White', 'carol.white@example.com', '8b2c86ea9cf2ea4eb517fd1e06b74f399e7fec0fef92e3b482a6cf2e2b092023', 0);
+INSERT INTO `blog_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_image`, `user_bio`, `user_status`) VALUES
+('user1', 'John Doe', 'john.doe@example.com', '0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e', 'user1.jpg', 'Hello, I am John Doe. I love writing about technology.', 1),
+('user2', 'Jane Smith', 'jane.smith@example.com', '6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4', 'user2.jpg', 'Hi there! I\'m Jane Smith, passionate about health and fitness.', 1),
+('user3', 'Alice Johnson', 'alice.johnson@example.com', '5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764', 'user3.jpg', 'Welcome! I\'m Alice Johnson. Travel enthusiast and budget traveler.', 2),
+('user4', 'Bob Brown', 'bob.brown@example.com', 'b97873a40f73abedd8d685a7cd5e5f85e4a9cfb83eac26886640a0813850122b', 'user4.jpg', 'Hey, I\'m Bob Brown. I enjoy exploring new destinations and cultures.', 1),
+('user5', 'Carol White', 'carol.white@example.com', '8b2c86ea9cf2ea4eb517fd1e06b74f399e7fec0fef92e3b482a6cf2e2b092023', 'user5.jpg', 'Nice to meet you! I\'m Carol White. Food lover and aspiring chef.', 0);
 
 -- --------------------------------------------------------
 
