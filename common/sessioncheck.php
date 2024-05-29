@@ -9,7 +9,7 @@ session_start();
 // Check if the user is logged in and the user ID is set in the session
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true || !isset($_SESSION['user_id'])) {
     // If not, redirect to the login page
-    header("Location: /login.php");
+    header("Location: login/login.php");
     exit();
 }
 
