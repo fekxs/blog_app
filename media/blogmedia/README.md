@@ -1,1 +1,1 @@
-This folder want to use stroe blog media
+This folder want to use store blog media

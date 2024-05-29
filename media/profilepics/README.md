@@ -1,1 +1,1 @@
-This folder want to use stroe profile pics of the users
+This folder want to use store profile pics of the users

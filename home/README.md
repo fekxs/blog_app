@@ -1,1 +1,1 @@
-under this folder we want to create home page and detailed Blog files
+In this folder we want to create home page and detailed Blog files
