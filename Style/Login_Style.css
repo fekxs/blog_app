@@ -10,8 +10,8 @@ body{
     font-family: "Inter", sans-serif;
 }
 .login{
-    width: 878px;
-    height: 562px;
+    width: 55vw;
+    height: 78vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,7 +19,7 @@ body{
 }
 .login-header{
     width: 100%;
-    height: 103px;
+    height: 13vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,7 +39,7 @@ body{
 }
 .log-in{
     width: 100%;
-    height: 190px;
+    height: 25vh;
 }
 .log-in>form{
     width: 100%;
@@ -78,9 +78,8 @@ body{
     cursor: pointer;
 }
 .login-footer{
-    margin-bottom: 20px;
     width: 100%;
-    height: 107px;
+    height: 13vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
