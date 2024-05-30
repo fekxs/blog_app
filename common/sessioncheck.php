@@ -2,8 +2,8 @@
 session_start();
    
   //THIS IS FOR ONLY DEVELPOMENT PURPOSE 
-  // $_SESSION['loggedin']=true;
-  // $_SESSION['user_id'] = 'user1';
+  $_SESSION['loggedin']=true;
+  $_SESSION['user_id'] = 'user1';
   //...END
 
 // Check if the user is logged in and the user ID is set in the session
