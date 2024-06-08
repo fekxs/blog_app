@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2024 at 09:01 AM
+-- Generation Time: Jun 08, 2024 at 09:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -142,7 +142,9 @@ INSERT INTO `reported_post` (`reported_id`, `post_id`, `user_id`, `report_status
 (2, 2, 'user1', 1),
 (3, 3, 'user2', 2),
 (4, 4, 'user3', 0),
-(5, 5, 'user4', 1);
+(5, 5, 'user4', 1),
+(6, 1, 'user1', 0),
+(7, 1, 'user1', 0);
 
 --
 -- Indexes for dumped tables
@@ -182,6 +184,28 @@ ALTER TABLE `reported_post`
   ADD PRIMARY KEY (`reported_id`),
   ADD KEY `post_id` (`post_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `post_categorise`
+--
+ALTER TABLE `post_categorise`
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `reported_post`
+--
+ALTER TABLE `reported_post`
+  MODIFY `reported_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
