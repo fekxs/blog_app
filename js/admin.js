@@ -66,3 +66,37 @@ function post_search(object){
     };
     xhr.send();
 }
+
+function report_data(key_report,object){
+    objects=document.querySelectorAll('#resp-select');
+    for(i=0;i<objects.length;i++){
+        if(objects[i].classList.contains('active')){
+            objects[i].classList.remove('active')
+        }
+        
+    }
+    object.classList.add('active')
+
+    the_selector=document.getElementById('theselector-box');
+    key_type=the_selector.value
+    if(key_report==2){
+        the_selector.style.display="none";
+    }
+    else{
+        the_selector.style.display="block";
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'Reports_show.php?Rkey='+key_report+"&Tkey="+key_type, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            document.getElementById('report-blogs').innerHTML=xhr.responseText
+        } else {
+            console.error('Error:', xhr.statusText);
+        }
+    };
+
+    xhr.onerror = function() {
+        console.error('Network Error');
+    };
+    xhr.send();
+}

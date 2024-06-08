@@ -62,5 +62,5 @@
     <?php }?>
 </div>
 <?php }else{
-      echo"<div style='height:80%;width:100%; display:grid; place-content:center; font-size:50px; font-weight: 600;'>No Recent Post Found</div>";
+      echo"<div style='height:80%;width:100%; display:grid; place-content:center; font-size:50px; font-weight: 600;'>No Post Found</div>";
     } ?>

@@ -380,9 +380,19 @@ html,body{
     gap: 30px;
     font-size: 18px;
 }
+.report-options > div h5{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+}
+.report-options > div h5:hover{
+    background-color: rgb(244, 244, 244);
+}
 .report-options .active{
     text-decoration: underline;
     text-decoration-thickness: 1.5px;
+    background-color: rgb(244, 244, 244);
 }
 .blog-content >h2{
     display: flex;
