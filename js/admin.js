@@ -44,18 +44,14 @@ function option_select(value){
 }
 function post_search(object){
     object_pre=object.parentNode
-    object_pre.querySelector('#search-engine').style.border="2px solid rgb(175, 175, 175)"
     input_value=object_pre.querySelector('#search-engine').value
-    if(input_value==''){
-        object_pre.querySelector('#search-engine').style.border="2px solid red";
-        return
-    }
+    
     
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'Post-search.php?key='+input_value, true);
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
-            document.getElementById('the-content').innerHTML=xhr.responseText
+            document.getElementById('Searched-posts').innerHTML=xhr.responseText
         } else {
             console.error('Error:', xhr.statusText);
         }
@@ -67,7 +63,8 @@ function post_search(object){
     xhr.send();
 }
 
-function report_data(key_report,object){
+function report_data(key_report){
+    object=key_report-1;
     objects=document.querySelectorAll('#resp-select');
     for(i=0;i<objects.length;i++){
         if(objects[i].classList.contains('active')){
@@ -75,7 +72,7 @@ function report_data(key_report,object){
         }
         
     }
-    object.classList.add('active')
+    objects[object].classList.add('active')
 
     the_selector=document.getElementById('theselector-box');
     key_type=the_selector.value
@@ -90,6 +87,58 @@ function report_data(key_report,object){
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
             document.getElementById('report-blogs').innerHTML=xhr.responseText
+        } else {
+            console.error('Error:', xhr.statusText);
+        }
+    };
+
+    xhr.onerror = function() {
+        console.error('Network Error');
+    };
+    xhr.send();
+}
+
+function status_update(report_id,Mode,Key){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'Controls.php?Option=0&report_id='+report_id+"&Mode="+Mode, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            report_data(Key)
+            
+        } else {
+            console.error('Error:', xhr.statusText);
+        }
+    };
+
+    xhr.onerror = function() {
+        console.error('Network Error');
+    };
+    xhr.send();
+}
+
+function post_visibility(post_id,Mode){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'Controls.php?Option=1&post_id='+post_id+"&Mode="+Mode, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            console.log(xhr.responseText)
+            post_search(document.getElementById('Thesearch'))
+        } else {
+            console.error('Error:', xhr.statusText);
+        }
+    };
+
+    xhr.onerror = function() {
+        console.error('Network Error');
+    };
+    xhr.send();
+}
+function user_visibility(user_id,Mode){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'Controls.php?Option=2&user_id='+user_id+"&Mode="+Mode, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            window.location.reload();
         } else {
             console.error('Error:', xhr.statusText);
         }

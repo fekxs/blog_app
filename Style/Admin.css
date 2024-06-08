@@ -167,6 +167,9 @@ html,body{
 .blog-block .blog-content h2{
     margin: 0;
     padding-bottom: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .blog-block .blog-content span {
     font-weight: 500;
@@ -409,29 +412,31 @@ html,body{
     box-shadow: 1px 1px 2px black;
     font-weight: 600;
 }
+
 .Responded-More-details{
-    display: none;
-}
-.Responded-More-details.active{
-    height: 35px;
+    height: 30px;
     width: fit-content;
-    display: flex;
-    position: relative;
-    left: 75%;
 }
 .Responded-More-details> ul{
     list-style: none;
     margin: 0;
     display: flex;
     flex-direction: row;
+    width: fit-content;
     gap: 10px;
 }
 .Responded-More-details> ul > li{
-    padding: 5px;
+    padding: 6px;
     width: fit-content;
-    background-color: red;
+    text-align: center;
     border-radius: 5px;
+    font-size: 13px;
     color: white;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+.Responded-More-details> ul > li:hover{
+    transform: scale(1.1);
 }
 .search-header{
     position: sticky;
