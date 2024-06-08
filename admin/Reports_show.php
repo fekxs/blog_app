@@ -45,7 +45,7 @@ $selection_sql="SELECT *
      foreach ($report_details as $data){ ?>
   <div class="blog-block">
     <div class="blog-image">
-      <img  src="../media/blogmedia/<?php echo $data['Image']; ?>" alt="" />
+      <img style="width:100%" src="../media/blogmedia/<?php echo $data['Image']; ?>" alt="" />
     </div>
     <div class="blog-content">
       <h2><?php echo $data['Post_Title']; ?><p style="margin:0; font-size:15px; font-weight:500;<?php echo ($data['Post_Status']=='0')?"color:green;":"color:red;"?>">Current Status:<b> <?php echo ($data['Post_Status']=='0')?"Active":"Suspended"?></b></p></h2>
@@ -54,7 +54,6 @@ $selection_sql="SELECT *
       <div class="bottom-part">
         <div class="footer-part">
           <span class="auther">By <?php echo $data['Author']; ?> </span>
-          <span><?php echo $data['Post_date']; ?></span>
         </div>
         <div class="Responded-More-details">
         <ul>
@@ -69,12 +68,31 @@ $selection_sql="SELECT *
             
           <li style="background-color: rgb(44, 128, 254);">View More</li>
         </ul>
+
+        </div>
       </div>
+      <div style="width:100%; height:fit-content">
+        <h4  style="margin:0;">Reported by</h4>
+        <ul style="margin:5px;">
+        <?php
+        $post_sql="SELECT * FROM reported_post INNER JOIN blog_user ON blog_user.user_id=reported_post.user_id WHERE post_id=".$data['Post_ID'];
+        $thedetails=$conn->query($post_sql);
+        while($reporter=$thedetails->fetch_assoc()){
+            echo "<li>".$reporter['user_name']."</li>";
+        }
+         ?>
+         </ul>
       </div>
       
     </div>
   </div>
     <?php }
     }else{
-      echo"<div style='height:50vh;width:100%; display:grid; place-content:center; font-size:50px; font-weight: 600;'>No Post Found</div>";
+        if($report==2){
+            echo"<div class='repond_complete'> 
+            <div style='height:200px;width:200px;  display:grid;place-items: center; font-size:120px;' class='bi-check-circle'></div>Responds Complete</div>";
+        }
+        else{
+            echo"<div style='height:50vh;width:100%; display:grid; place-content:center; font-size:50px; font-weight: 600;'>No Post Found</div>";
+        }
     } ?>

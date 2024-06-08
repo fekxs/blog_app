@@ -155,7 +155,7 @@ html,body{
     width: 250px;
 }
 .blog-block .blog-image img {
-    width: 160px;
+    width: 95%;
     height: 100%;
     object-fit: cover;
 }
@@ -401,6 +401,17 @@ html,body{
     display: flex;
     gap: 4px;
     align-items: center;
+}
+.repond_complete{
+    height:70vh;
+    width:100%; 
+    display:flex; 
+    align-items:center; 
+    flex-direction:column; 
+    justify-content:center; 
+    font-size:50px; 
+    font-weight: 600;
+    color:green;
 }
 .blog-content .blog-status{
     background-color: red;
