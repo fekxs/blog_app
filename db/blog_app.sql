@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2024 at 09:18 AM
+-- Generation Time: Jun 08, 2024 at 10:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,7 @@ CREATE TABLE `blog_media` (
 INSERT INTO `blog_media` (`media_id`, `post_id`, `media_name`) VALUES
 (1, 1, 'ai_future.jpg'),
 (2, 2, 'healthy_tips.png'),
-(3, 3, 'budget_travel.pdf'),
+(3, 3, 'budget_travel.png'),
 (4, 4, 'travel_destinations.jpg'),
 (5, 5, 'vegan_recipes.png');
 
@@ -138,11 +138,11 @@ CREATE TABLE `reported_post` (
 --
 
 INSERT INTO `reported_post` (`reported_id`, `post_id`, `user_id`, `report_status`) VALUES
-(1, 1, 'user2', 0),
-(2, 2, 'user1', 1),
-(3, 3, 'user2', 2),
-(4, 4, 'user3', 0),
-(5, 5, 'user4', 1),
+(1, 2, 'user2', 2),
+(2, 1, 'user1', 0),
+(3, 2, 'user2', 2),
+(4, 3, 'user3', 0),
+(5, 4, 'user4', 1),
 (6, 1, 'user1', 0),
 (7, 1, 'user1', 0);
 
@@ -205,7 +205,7 @@ ALTER TABLE `post_categorise`
 -- AUTO_INCREMENT for table `reported_post`
 --
 ALTER TABLE `reported_post`
-  MODIFY `reported_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `reported_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

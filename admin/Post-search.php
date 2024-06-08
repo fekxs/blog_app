@@ -1,4 +1,5 @@
 <?php   
+  include '../common/Common_functions.php';
   include '../common/sessioncheck.php';
   include '../common/db_connection.php';
   $key=$_GET['key'];
@@ -13,7 +14,7 @@
   $result=$conn->query($Poster_sql);
   $post_details=[];
   while ($row = $result->fetch_assoc()) {
-    $date=$row['post_date'];
+    $date=time_calculation($row['post_date']);
     $post_details[]=[
       'Author'=>$row['user_name'],
       'Image'=>$row['media_name'],

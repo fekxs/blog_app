@@ -1,10 +1,38 @@
 <?php
+    include '../common/Common_functions.php';
+  include '../common/sessioncheck.php';
+  include '../common/db_connection.php';
 $report=$_GET['Rkey'];
 $Type=$_GET['Tkey'];
 $report_details=[];
 if($report==1){
-    $selection_sql="select * from ";
+    if($Type==1){
+        $select="report_status!=0";
+    }else if($Type==2){
+        $select="report_status=1";
+    }else{
+        $select="report_status=2";
+    }   
+}else{
+    $select="report_status=0";
 }
+$selection_sql="SELECT *
+    FROM (SELECT DISTINCT post_id, user_id FROM reported_post WHERE ".$select.") AS report
+    INNER JOIN blog_user ON blog_user.user_id=report.user_id
+    INNER JOIN posts ON blog_user.user_id=posts.user_id
+    INNER JOIN blog_media ON blog_media.post_id=posts.post_id";
+    $object=$conn->query($selection_sql);
+    while($values=$object->fetch_assoc()){
+        $date=time_calculation($values['post_date']);
+        $report_details[]=[
+            'Author'=>$values['user_name'],
+            'Image'=>$values['media_name'],
+            'Post_ID'=>$values['post_id'],
+            'Post_Title'=>$values['post_title'],
+            'Post_detailed'=>$values['post_detailed'],
+            'Post_date'=>$date,
+        ];
+    }
  ?>
 <?php if(count($report_details)>0){ 
      foreach ($report_details as $data){ ?>
