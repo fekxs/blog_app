@@ -2,24 +2,17 @@
 <?php 
   include '../common/sessioncheck.php';
   include '../common/db_connection.php';
-  $query="select * from posts where post_status=0 order by post_date";
+  $query="select * from posts
+          INNER JOIN blog_user on blog_user.user_id=posts.user_id
+          INNER JOIN blog_media on blog_media.post_id=posts.post_id
+          where post_status=0 order by post_date";
   $result=$conn->query($query);
   $post_details=[];
   while ($row = $result->fetch_assoc()) {
-    $user_data="select * from blog_user where user_id='".$row['user_id']."'";
-    $user_data=$conn->query($user_data);
-    if($user_row=$user_data->fetch_assoc()){
-      $username=$user_row['user_name'];
-    }
-    $media_data="select * from blog_media where post_id='".$row['post_id']."'";
-    $media_data=$conn->query($media_data);
-    if($media_row=$media_data->fetch_assoc()){
-      $image=$media_row['media_name'];
-    }
     $date=time_calculation($row['post_date']);
     $post_details[]=[
-      'Author'=>$username,
-      'Image'=>$image,
+      'Author'=>$row['user_name'],
+      'Image'=>$row['media_name'],
       'Post_ID'=>$row['post_id'],
       'Post_Title'=>$row['post_title'],
       'Post_detailed'=>$row['post_detailed'],
