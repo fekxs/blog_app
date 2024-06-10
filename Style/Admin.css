@@ -155,7 +155,7 @@ html,body{
     width: 250px;
 }
 .blog-block .blog-image img {
-    width: 160px;
+    width: 95%;
     height: 100%;
     object-fit: cover;
 }
@@ -167,6 +167,9 @@ html,body{
 .blog-block .blog-content h2{
     margin: 0;
     padding-bottom: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .blog-block .blog-content span {
     font-weight: 500;
@@ -399,6 +402,17 @@ html,body{
     gap: 4px;
     align-items: center;
 }
+.repond_complete{
+    height:70vh;
+    width:100%; 
+    display:flex; 
+    align-items:center; 
+    flex-direction:column; 
+    justify-content:center; 
+    font-size:50px; 
+    font-weight: 600;
+    color:green;
+}
 .blog-content .blog-status{
     background-color: red;
     color: white;
@@ -409,29 +423,34 @@ html,body{
     box-shadow: 1px 1px 2px black;
     font-weight: 600;
 }
+
 .Responded-More-details{
-    display: none;
-}
-.Responded-More-details.active{
-    height: 35px;
+    height: 30px;
     width: fit-content;
-    display: flex;
-    position: relative;
-    left: 75%;
 }
 .Responded-More-details> ul{
     list-style: none;
     margin: 0;
     display: flex;
     flex-direction: row;
+    width: fit-content;
     gap: 10px;
 }
-.Responded-More-details> ul > li{
-    padding: 5px;
+.Responded-More-details> ul >a{
+    text-decoration: none;
+}
+.Responded-More-details> ul li{
+    padding: 6px;
     width: fit-content;
-    background-color: red;
+    text-align: center;
     border-radius: 5px;
+    font-size: 13px;
     color: white;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+.Responded-More-details> ul li:hover{
+    transform: scale(1.1);
 }
 .search-header{
     position: sticky;
@@ -466,4 +485,125 @@ html,body{
 }
 .search-header>input[type='button']:hover{
     background-color: rgb(28, 102, 212);
+}
+
+
+
+.post_view{
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    gap: 10px;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.post_header{
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.post_header .back{
+    height: 50px;
+    width: fit-content;
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.post_header .title{
+    width: 80%;
+    height: fit-content;
+    padding: 10px;
+}
+.post_header .title h4{
+    margin: 0;
+    font-size: 35px;
+}
+.post_header .title h5{
+    margin: 0;
+    margin-top: -5px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.post_header .option{
+    overflow: hidden;
+    width: 10%;
+    margin-right: 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+}
+.post_header .option i{
+    padding: 4px;
+    transform: translateX(45px);
+    transition: all .3s ease-in-out;
+}
+.post_header .option.active i{
+    transform: translateX(-60px);
+}
+.post_header .option>div{
+    transition: all .3s ease-in-out,font-weight .1s ease-in-out;
+    font-size: 17px;
+    padding: 6px;
+    border-radius: 5px;
+    color: white;
+    transform: translateX(160px);
+}
+.post_header .option.active>div:hover{
+    font-weight: 600;
+}
+.post_header .option.active>div{
+    transform: translateX(-10px);
+}
+.post_details{
+    padding-top: 20px;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post_details h6{
+     margin: 0;
+     font-size: 15px;
+     width: 95%;
+     text-align: end;
+     margin-bottom: 10px;
+     font-weight: 500;
+}
+.post_details img{
+    width: 80%;
+    height: fit-content;
+    border-radius: 5px;
+}
+.post_details p{
+    text-align: start;
+    width: 80%;
+    font-size: 20px;
+}
+.post_view .post_footer{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post_view .post_footer b{
+    font-weight: 600;
 }

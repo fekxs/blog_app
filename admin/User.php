@@ -91,7 +91,15 @@
         <td><?php echo $data['Last'] ?></td>
         <td style="text-align:center;"><?php echo $data['Posts'] ?></td>
         <td><?php echo ($data['Status']=='1')?"Active":"Inactive"; ?></td>
-        <td><button class="details-view">View Details</button></td>
+        <td><?php 
+            if($data['Status']=='1'){
+                ?><button onclick="user_visibility('<?php echo $data['User_id']; ?>',2)" class='details-view'>Deactive</button><?php
+            }
+            else{
+              ?><button onclick="user_visibility('<?php echo $data['User_id']; ?>',1)" class='details-view'>Active</button><?php
+            }
+             ?>
+             <button  class="details-view">View Details</button></td>
       </tr>
       <?php } ?>
     </tbody>

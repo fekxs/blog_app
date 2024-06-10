@@ -5,7 +5,7 @@
   $query="select * from posts
           INNER JOIN blog_user on blog_user.user_id=posts.user_id
           INNER JOIN blog_media on blog_media.post_id=posts.post_id
-          where post_status=0 order by post_date";
+          where posts.post_status=0 AND blog_user.user_status=1 order by post_date desc LIMIT 5";
   $result=$conn->query($query);
   $post_details=[];
   while ($row = $result->fetch_assoc()) {
@@ -27,7 +27,7 @@
   <?php foreach ($post_details as $data){ ?>
   <div class="blog-block">
     <div class="blog-image">
-      <img  src="../media/blogmedia/<?php echo $data['Image']; ?>" alt="" />
+      <img  src="../media/blogmedia/<?php echo $data['Image']; ?>" alt="" load='lazy' />
     </div>
     <div class="blog-content">
       <h2><?php echo $data['Post_Title']; ?></h2>
@@ -38,15 +38,13 @@
           <span class="auther">By <?php echo $data['Author']; ?> </span>
           <span><?php echo $data['Post_date']; ?></span>
         </div>
-
-        <i class="fa-solid fa-ellipsis" onclick="report_more(this)"></i>
-      </div>
-      <div class="Responded-More-details">
+        <div class="Responded-More-details">
         <ul>
-          <li style="background-color: red;">Suspend</li>
-          <li style="background-color: rgb(44, 128, 254);">View More</li>
+          <li <?php echo 'onclick="open_post('.$data['Post_ID'].',0)"' ?> style="background-color: rgb(44, 128, 254);">View More</li>
         </ul>
       </div>
+      </div>
+      
     </div>
   </div>
     <?php }?>
