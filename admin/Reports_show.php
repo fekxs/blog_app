@@ -66,7 +66,7 @@ $selection_sql="SELECT *
             }
              ?>
             
-          <li style="background-color: rgb(44, 128, 254);">View More</li>
+            <li <?php echo 'onclick="open_post('.$data['Post_ID'].',3)"' ?> style="background-color: rgb(44, 128, 254);">View More</li>
         </ul>
 
         </div>

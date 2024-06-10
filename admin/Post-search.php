@@ -61,13 +61,13 @@
         <ul>
         <?php 
             if($data['Post_status']=='0'){
-                echo "<li style='background-color: red;' onclick='post_visibility(".$data['Post_ID'].",3)'>Suspend</li>";
+                echo "<li style='background-color: red;' onclick='post_visibility(".$data['Post_ID'].",3,0)'>Suspend</li>";
             }
             else{
-                echo "<li style='background-color: green;' onclick='post_visibility(".$data['Post_ID'].",0)'>Reactive</li>";
+                echo "<li style='background-color: green;' onclick='post_visibility(".$data['Post_ID'].",0,0)'>Reactive</li>";
             }
              ?>
-          <li style="background-color: rgb(44, 128, 254);">View More</li>
+          <li <?php echo 'onclick="open_post('.$data['Post_ID'].',2)"' ?> style="background-color: rgb(44, 128, 254);">View More</li>
         </ul>
       </div>
       </div>
