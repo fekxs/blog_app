@@ -45,8 +45,11 @@ nav {
 }
 .rightNav {
     display: flex;
-    gap: 1rem;
+    gap: 1.3rem;
     align-items: center;
+}
+.rightNav i {
+    cursor: pointer;
 }
 .profile-image-container {
     width: 40px;
@@ -115,10 +118,26 @@ nav {
 }
 .blog-details .header{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.blog-details .header h4 {
+    cursor: pointer;
+}
+.blog-details .header .leftHeader {
+    display: flex;
+    gap: 1rem;
+}
+.blog-details .header .rightHeader button {
+    padding: 0.6rem .8rem;
+    border-radius: .5rem;
+    border: 0;
+    background-color: #F2F2F2;
+    font-weight: 600;
+    cursor: pointer;
 }
 .blog-details .header h4{
-    width: 100%;
-    text-align: left;
     margin: 0;
     font-weight: 600;
     text-decoration: underline;
