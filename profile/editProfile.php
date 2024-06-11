@@ -1,3 +1,12 @@
+<?php
+include '/common/db_connection.php';
+include '/common/sessioncheck.php';
+
+$user_id = $_SESSION['user_id'];
+
+// Output the user ID
+echo "The user ID is: " . $user_id;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
