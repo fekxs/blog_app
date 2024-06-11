@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    margin: 0;
+    height: 0;
+    font-family: "Poppins", sans-serif;
+}
+nav{
+    padding: .5rem 1.5rem;
+
+    background-color:#F3F3F3 ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.leftNav{
+    
+    display: flex;
+    
+    align-items: center;
+
+}
+.logo{
+    margin-left: 1.5rem;
+    font-size: 1.3rem;
+}
+.pagetitle{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: 300;
+    margin-left: -50rem;
+    
+}
+section{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formBox{
+    margin-top: 2rem;
+    width: 60rem;
+    height: 50rem;
+    background-color: #D9D9D9;
+    border-radius: 0.5rem;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+.imgbox{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  /* width: 7rem; */
+/* height: 7rem; */
+border-radius:50%;  
+}
+
+.imgbox input::-webkit-file-upload-button{
+    /* background-image:url(../media/profilepics/camera.png) ; */
+   width: 8rem;
+   height: 2.5rem;
+   border: none;
+   border-radius: 0.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+   position: relative;
+   left: 3.5rem;
+    
+}
+.imgbox input[type=file]{
+    color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+}
+ .formBox img{ 
+    width: 7rem;
+    height: 7rem;
+    border-radius:50%;
+    border: none;
+    align-self: center;
+    justify-self: center; 
+}
+.fieldbox {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.fieldbox form{
+    display: flex; 
+    flex-direction: column; 
+    gap: 2rem;
+    align-items: center;
+    
+    
+    
+
+}
+.fieldbox input{
+padding: 1.3rem 30rem;
+    border: none;
+    border-radius: 0.3rem;
+    padding-left: 1rem;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.1);
+}
+.fieldbox input[name="bio"] {
+    
+    /* padding: 1.5rem 15rem; */
+  }
+  .fieldbox input[type="submit"]{
+    padding: 0.8rem 15rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  
