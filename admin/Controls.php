@@ -30,5 +30,19 @@ include '../common/db_connection.php';
         $Update="UPDATE blog_user SET user_status=".$Mode." WHERE user_id='".$User_id."'";
         $conn->query($Update);
     }
+    else if($Option=='3'){
+        $Post_id=$_GET['Post_id'];
+        $Recent_Path=$_GET['Path'];
+        $_SESSION['Post']=$Post_id;
+        $_SESSION['Path']=$Recent_Path;
+    }
+    else if($Option=='4'){
+        if(isset($_SESSION['Post'])){
+            unset($_SESSION['Post']);
+        }else{
+            unset( $_SESSION['Path']);
+        }
+        
+    }
 
 ?>
