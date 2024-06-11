@@ -40,7 +40,7 @@
         </div>
         <div class="Responded-More-details">
         <ul>
-          <li style="background-color: rgb(44, 128, 254);">View More</li>
+          <li <?php echo 'onclick="open_post('.$data['Post_ID'].',0)"' ?> style="background-color: rgb(44, 128, 254);">View More</li>
         </ul>
       </div>
       </div>
