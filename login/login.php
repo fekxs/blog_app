@@ -13,36 +13,38 @@
         <div class="row">
             <div class="col-md-4 img-container"> <!-- Adjust col-md-* as needed -->
                 <!-- Picture here -->
-                <img src="../img/Screenshot 2024-06-02 150656.png" class="img-fluid" alt="Picture">
+                <img src="../img/side-img.jpg" class="img-fluid" alt="Picture">
             </div>
             <div class="col-md-8 form-container"> <!-- Adjust col-md-* as needed -->
                 <!-- Login form here -->
                 <h2>WELCOME</h2>
+                <br>
                 <form>
-                <label>Name</label><br>
+                        <label style="margin-left: 220px;">Name</label><br>
                         <center>
                         <input type="text" class="search__input" placeholder="e.g. elon mask" width="600px">
                         </center>
                     <br>
+                        <label  style="margin-left: 220px;">User Name</label><br>
                         <center>
-                        <label>User Name</label><br>
                         <input type="text" class="search__input" placeholder="e.g. elonmusk1971@gmail.com" width="600px">
                         </center>
                     <br>
+                        <label  style="margin-left: 220px;">Password</label><br>
                         <center>
-                        <label>Password</label><br>
-                        <input type="text" class="search__input" placeholder="6+ character" width="600px">
+                        <input type="password" class="search__input" placeholder="6+ character" width="600px">
                         </center>
+                    <br>
                     <br>
                     <div class="form-group form-check">
                         <center>
                         <input type="checkbox" class="form-check-input" id="terms" required>
-                        <label class="form-check-label" for="terms">I Agree With Blog Terms Of Service Privacy Policy, And Default Notification Settings</label>
+                        <label class="form-check-label" for="terms">I Agree With Blog Terms Of Service Privacy Policy, And <br>Default Notification Settings</label>
                         </center>
                     </div>
                     <br>
                     <br>
-                    <button type="submit" class="btn btn-dark btn-block btn-short">Create Account</button>
+                    <button type="submit" class="btn btn-dark btn-block btn-short" style="border-radius: 10px;">Create Account</button>
                 </form>
             </div>
         </div>
