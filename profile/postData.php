@@ -26,4 +26,47 @@ if (isset($_SESSION['user_id'])) {
     }
     $conn->close();
 }
+function fetchCategories($conn) {
+    $categories = [];
+    $catQuery = "SELECT cat_id, cat_name FROM post_categorise";
+    if ($result = $conn->query($catQuery)) {
+        while ($row = $result->fetch_assoc()) {
+            $categories[] = $row;
+        }
+    }
+    return $categories;
+}
+function fetchPostData($conn, $post_id, $user_id) {
+    $postQuery = "SELECT post_title, cat_id, post_detailed FROM posts WHERE post_id = ? AND user_id = ?";
+    $postData = [];
+    if ($stmt = $conn->prepare($postQuery)) {
+        $stmt->bind_param("ii", $post_id, $user_id);
+        $stmt->execute();
+        $stmt->bind_result($post_title, $cat_id, $post_detailed);
+        if ($stmt->fetch()) {
+            $postData = [
+                'post_title' => $post_title,
+                'cat_id' => $cat_id,
+                'post_detailed' => $post_detailed
+            ];
+        }
+        $stmt->close();
+    }
+    return $postData;
+}
+function fetchPostImage($conn, $post_id) {
+    $postImage = '';
+    $query = "SELECT media_name FROM blog_media WHERE post_id = ?";
+    if ($stmt = $conn->prepare($query)) {
+        $stmt->bind_param("i", $post_id);
+        $stmt->execute();
+        $stmt->bind_result($media_name);
+        if ($stmt->fetch()) {
+            $postImage = $media_name;
+        }
+        $stmt->close();
+    }
+    return $postImage;
+}
+
 ?>
