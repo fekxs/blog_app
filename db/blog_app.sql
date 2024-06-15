@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2024 at 10:25 AM
+-- Generation Time: Jun 15, 2024 at 12:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,9 @@ INSERT INTO `blog_media` (`media_id`, `post_id`, `media_name`) VALUES
 (2, 2, 'healthy_tips.png'),
 (3, 3, 'budget_travel.png'),
 (4, 4, 'travel_destinations.jpg'),
-(5, 5, 'vegan_recipes.png');
+(5, 5, 'vegan_recipes.png'),
+(6, 6, 'workout.jpg'),
+(7, 7, 'SmartPhone.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,9 +69,9 @@ CREATE TABLE `blog_user` (
 INSERT INTO `blog_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_image`, `user_bio`, `user_status`) VALUES
 ('user1', 'John Doe', 'john.doe@example.com', '0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e', 'user1.jpg', 'Hello, I am John Doe. I love writing about technology.', 1),
 ('user2', 'Jane Smith', 'jane.smith@example.com', '6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4', 'user2.jpg', 'Hi there! I\'m Jane Smith, passionate about health and fitness.', 1),
-('user3', 'Alice Johnson', 'alice.johnson@example.com', '5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764', 'user3.jpg', 'Welcome! I\'m Alice Johnson. Travel enthusiast and budget traveler.', 2),
+('user3', 'Alice Johnson', 'alice.johnson@example.com', '5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764', 'user3.jpg', 'Welcome! I\'m Alice Johnson. Travel enthusiast and budget traveler.', 1),
 ('user4', 'Bob Brown', 'bob.brown@example.com', 'b97873a40f73abedd8d685a7cd5e5f85e4a9cfb83eac26886640a0813850122b', 'user4.jpg', 'Hey, I\'m Bob Brown. I enjoy exploring new destinations and cultures.', 1),
-('user5', 'Carol White', 'carol.white@example.com', '8b2c86ea9cf2ea4eb517fd1e06b74f399e7fec0fef92e3b482a6cf2e2b092023', 'user5.jpg', 'Nice to meet you! I\'m Carol White. Food lover and aspiring chef.', 0);
+('user5', 'Carol White', 'carol.white@example.com', '8b2c86ea9cf2ea4eb517fd1e06b74f399e7fec0fef92e3b482a6cf2e2b092023', 'user5.jpg', 'Nice to meet you! I\'m Carol White. Food lover and aspiring chef.', 1);
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,9 @@ INSERT INTO `posts` (`post_id`, `user_id`, `cat_id`, `post_title`, `post_detaile
 (2, 'user2', 2, 'Healthy Living Tips', 'Maintaining a healthy lifestyle is crucial for overall well-being. This involves several key aspects, starting with a balanced diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats, while limiting processed foods, sugary snacks, and excessive salt intake. Staying hydrated by drinking plenty of water throughout the day is essential for bodily functions and overall health.\r\n\r\nRegular exercise is another important component of a healthy lifestyle. Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity per week, along with strength training exercises at least two days a week. Adequate sleep is crucial as well, aiming for 7-9 hours each night to support physical and mental health.\r\n\r\nManaging stress is key; practicing stress-reducing techniques such as deep breathing, meditation, or spending time in nature can help. Maintaining social connections with friends and family is also vital for mental and emotional well-being.\r\n\r\nLimiting alcohol consumption and avoiding tobacco are important for reducing the risk of various health problems. Regular health check-ups with your healthcare provider for screenings and preventive care can catch health issues early for better outcomes.\r\n\r\nPracticing good hygiene, including regular handwashing and oral hygiene, helps prevent illness and promotes overall health. Staying active throughout the day, incorporating physical activity into your routine, and minimizing screen time are also beneficial for your health.\r\n\r\nFinally, practicing mindful eating, paying attention to hunger and fullness cues, and eating slowly can help prevent overeating and promote healthier food choices. Making small, sustainable changes in these areas can lead to significant improvements in your overall health and well-being.', 0, '2024-05-02 11:00:00'),
 (3, 'user3', 3, 'Travel on a Budget', 'Traveling on a budget is possible with careful planning and smart choices. Here are some tips for enjoying travel without breaking the bank:\r\n\r\nPlan Ahead: Research your destination thoroughly and plan your trip well in advance. Look for deals on accommodations, transportation, and activities.\r\n\r\nTravel Off-Season: Consider traveling during the off-peak season when prices for flights, accommodations, and attractions are often lower. You\'ll also encounter fewer crowds.\r\n\r\nFlexible Dates: Be flexible with your travel dates to take advantage of lower prices. Use fare comparison websites or flexible date search options to find the best deals on flights.\r\n\r\nBudget Accommodations: Stay in budget-friendly accommodations such as hostels, guesthouses, or vacation rentals. Consider options like Airbnb, Couchsurfing, or staying in budget hotels or hostels.\r\n\r\nCook Your Own Meals: Save money on food by shopping at local markets and cooking your own meals. Look for accommodations with kitchen facilities to prepare your own breakfast or dinner.\r\n\r\nUse Public Transportation: Opt for public transportation over taxis or rental cars to save money on getting around. Many cities have affordable and efficient public transportation systems.\r\n\r\nSeek Free Activities: Look for free or low-cost activities and attractions at your destination, such as parks, museums with free admission days, walking tours, or hiking trails.\r\n\r\nTravel Rewards and Discounts: Take advantage of travel rewards programs, credit card points, and discounts to save on flights, accommodations, and activities.\r\n\r\nPack Light: Avoid extra baggage fees by packing light and bringing only the essentials. Consider packing versatile clothing that can be mixed and matched.\r\n\r\nTravel Locally: Explore destinations closer to home to save money on transportation costs. You might discover hidden gems in your own region that are budget-friendly.\r\n\r\nAvoid Tourist Traps: Be mindful of tourist traps that are often overpriced. Research restaurants and attractions frequented by locals for more authentic and affordable experiences.\r\n\r\nStay Flexible: Remain flexible with your itinerary and be open to spontaneous opportunities or last-minute deals that can help you save money.\r\n\r\nTraveling on a budget doesn\'t mean sacrificing experiences; it\'s about finding ways to make the most of your resources while still enjoying your trip. With careful planning and creativity, you can have a memorable travel experience without breaking the bank.', 1, '2024-05-03 09:45:00'),
 (4, 'user4', 4, 'Top Travel Destinations', 'There are countless incredible travel destinations around the world, each offering unique experiences and attractions. Here are some top destinations to consider for your next adventure:\r\n\r\nParis, France: Known as the \"City of Light,\" Paris is renowned for its iconic landmarks such as the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum. Visitors can stroll along the charming streets, indulge in delicious French cuisine, and explore world-class art and culture.\r\n\r\nKyoto, Japan: With its stunning temples, traditional tea houses, and picturesque gardens, Kyoto is a treasure trove of Japanese history and culture. Visitors can experience the beauty of cherry blossoms in spring, participate in tea ceremonies, and wander through historic districts like Gion.\r\n\r\nSantorini, Greece: Famous for its whitewashed buildings, blue-domed churches, and breathtaking sunsets, Santorini is a dream destination for many travelers. Explore the island\'s charming villages, relax on stunning beaches, and savor fresh seafood overlooking the Aegean Sea.\r\n\r\nRome, Italy: As the capital of the ancient Roman Empire, Rome is a city steeped in history and architectural wonders. Highlights include the Colosseum, Vatican City, Roman Forum, and the Trevi Fountain. Don\'t forget to indulge in authentic Italian cuisine and gelato.\r\n\r\nMachu Picchu, Peru: Nestled high in the Andes Mountains, Machu Picchu is one of the most famous archaeological sites in the world. Hike the Inca Trail to reach this ancient citadel, marvel at the breathtaking views, and learn about the fascinating history of the Inca civilization.\r\n\r\nCape Town, South Africa: Offering a stunning coastline, diverse wildlife, and vibrant culture, Cape Town is a must-visit destination. Explore the iconic Table Mountain, visit the colorful Bo-Kaap neighborhood, and take a scenic drive along the Cape Peninsula.\r\n\r\nNew York City, USA: The bustling metropolis of New York City offers endless attractions, including Times Square, Central Park, the Statue of Liberty, and Broadway shows. Experience world-class museums, diverse cuisine, and vibrant neighborhoods in the city that never sleeps.\r\n\r\nBangkok, Thailand: A vibrant mix of ancient temples, bustling street markets, and modern skyscrapers, Bangkok is a city of contrasts. Explore historic sites like the Grand Palace and Wat Arun, sample delicious street food, and experience the city\'s vibrant nightlife.\r\n\r\nBarcelona, Spain: Known for its unique architecture, beautiful beaches, and lively atmosphere, Barcelona is a vibrant city with something for everyone. Explore the whimsical designs of Antoni Gaudí, stroll along the bustling Las Ramblas, and enjoy tapas in charming neighborhood cafes.\r\n\r\nDubai, UAE: A futuristic city known for its record-breaking skyscrapers, luxurious shopping malls, and desert adventures, Dubai offers a unique blend of modernity and tradition. Visit the iconic Burj Khalifa, explore traditional souks, and enjoy thrilling desert safaris.\r\n\r\nEach of these destinations offers its own charm, history, and experiences, making them top choices for travelers seeking unforgettable adventures around the world.', 0, '2024-05-04 08:30:00'),
-(5, 'user5', 5, 'Delicious Vegan Recipes', 'Delicious vegan recipes offer a wide array of flavorful options that are both nutritious and satisfying. One popular recipe is vegan chickpea curry, combining chickpeas, vegetables, and aromatic spices like cumin, turmeric, and coriander for a hearty and flavorful dish. Another favorite is vegan lentil soup, packed with protein-rich lentils, vegetables, and herbs like thyme and bay leaves for a comforting and nutritious meal. For a lighter option, try a vegan Buddha bowl, featuring a mix of grains, roasted vegetables, leafy greens, and a flavorful tahini or avocado dressing. Additionally, vegan tacos filled with spicy black beans, avocado, salsa, and crunchy cabbage make for a delicious and easy-to-make meal. For dessert, indulge in vegan banana bread or chocolate avocado mousse, both satisfying treats made without animal products. These recipes showcase the versatility and deliciousness of plant-based cooking, proving that vegan meals can be both nutritious and incredibly tasty.', 0, '2024-05-05 07:20:00');
+(5, 'user5', 5, 'Delicious Vegan Recipes', 'Delicious vegan recipes offer a wide array of flavorful options that are both nutritious and satisfying. One popular recipe is vegan chickpea curry, combining chickpeas, vegetables, and aromatic spices like cumin, turmeric, and coriander for a hearty and flavorful dish. Another favorite is vegan lentil soup, packed with protein-rich lentils, vegetables, and herbs like thyme and bay leaves for a comforting and nutritious meal. For a lighter option, try a vegan Buddha bowl, featuring a mix of grains, roasted vegetables, leafy greens, and a flavorful tahini or avocado dressing. Additionally, vegan tacos filled with spicy black beans, avocado, salsa, and crunchy cabbage make for a delicious and easy-to-make meal. For dessert, indulge in vegan banana bread or chocolate avocado mousse, both satisfying treats made without animal products. These recipes showcase the versatility and deliciousness of plant-based cooking, proving that vegan meals can be both nutritious and incredibly tasty.', 0, '2024-05-05 07:20:00'),
+(6, 'user3', 2, 'Healthy Workout', 'A healthy workout routine involves a balanced approach incorporating cardiovascular exercise, strength training, flexibility, and rest. Cardiovascular exercises like running, cycling, swimming, or dancing should be performed for at least 150 minutes of moderate-intensity or 75 minutes of high-intensity activity per week to improve heart health and endurance. Strength training, crucial for building muscle and boosting metabolism, should target all major muscle groups at least twice a week through bodyweight exercises, weight lifting, resistance bands, or gym machines. Flexibility and mobility exercises, such as yoga, dynamic stretching before workouts, and static stretching after workouts, help enhance range of motion and reduce injury risk. Core workouts, including planks, Russian twists, and bicycle crunches, strengthen the muscles in the abdomen, lower back, and pelvis. Equally important is rest and recovery, allowing the body to recuperate through adequate sleep, hydration, and scheduled rest days to prevent overtraining and injury. By integrating these components, you can create a comprehensive and sustainable fitness plan that promotes overall health and well-being.', 0, '2024-06-08 19:10:32'),
+(7, 'user1', 1, 'Smartphones', 'Smartphones have revolutionized modern life by integrating communication, entertainment, and productivity into a single portable device. Equipped with advanced processors, high-resolution screens, and sophisticated operating systems, smartphones enable users to perform a wide range of tasks beyond just making calls or sending text messages. They serve as powerful tools for internet browsing, social media interaction, email management, and navigation with GPS. The proliferation of apps has further expanded their functionality, allowing users to stream music and videos, play games, edit photos and videos, manage finances, and even control smart home devices.\r\n\r\nMoreover, smartphones have transformed the way we capture and share moments, with high-quality cameras and instant sharing capabilities on social media platforms. Health and fitness tracking apps monitor physical activity and provide insights into health metrics, promoting a healthier lifestyle. Additionally, mobile payment systems like Apple Pay and Google Wallet have simplified transactions, making cashless payments more secure and convenient.\r\n\r\nHowever, the ubiquity of smartphones also brings challenges such as digital addiction, privacy concerns, and the potential for decreased face-to-face social interactions. Despite these issues, the advantages of smartphones in enhancing connectivity, productivity, and access to information make them indispensable in today\'s digital age. They continue to evolve with innovations in artificial intelligence, augmented reality, and 5G technology, promising even greater capabilities and integration into our daily lives.', 0, '2024-06-08 19:18:07');
 
 -- --------------------------------------------------------
 
@@ -138,13 +142,16 @@ CREATE TABLE `reported_post` (
 --
 
 INSERT INTO `reported_post` (`reported_id`, `post_id`, `user_id`, `report_status`) VALUES
-(1, 2, 'user2', 2),
-(2, 1, 'user1', 0),
-(3, 2, 'user2', 2),
-(4, 3, 'user3', 0),
-(5, 4, 'user4', 1),
-(6, 1, 'user1', 0),
-(7, 1, 'user1', 0);
+(1, 1, 'user2', 1),
+(2, 1, 'user5', 1),
+(3, 2, 'user3', 1),
+(4, 3, 'user1', 0),
+(5, 1, 'user4', 1),
+(14, 7, 'user4', 1),
+(15, 4, 'user5', 1),
+(21, 6, 'user5', 1),
+(22, 7, 'user5', 1),
+(23, 7, 'user1', 1);
 
 --
 -- Indexes for dumped tables
@@ -190,10 +197,16 @@ ALTER TABLE `reported_post`
 --
 
 --
+-- AUTO_INCREMENT for table `blog_media`
+--
+ALTER TABLE `blog_media`
+  MODIFY `media_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `post_categorise`
@@ -205,7 +218,7 @@ ALTER TABLE `post_categorise`
 -- AUTO_INCREMENT for table `reported_post`
 --
 ALTER TABLE `reported_post`
-  MODIFY `reported_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `reported_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
