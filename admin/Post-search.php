@@ -4,22 +4,18 @@
   include '../common/db_connection.php';
   $key=$_GET['key'];
   if($key==''){
-    $Poster_sql="SELECT * FROM posts
-    INNER JOIN post_categorise ON posts.cat_id = post_categorise.cat_id
-    INNER JOIN blog_user ON blog_user.user_id = posts.user_id
-    INNER JOIN blog_media ON posts.post_id = blog_media.post_id
-    WHERE blog_user.user_status = 1 AND  posts.post_status!=1 AND posts.post_status!=2";
+    $Poster_check="";
   }
   else{
-    $Poster_sql="SELECT * FROM posts
-    INNER JOIN post_categorise ON posts.cat_id = post_categorise.cat_id
-    INNER JOIN blog_user ON blog_user.user_id = posts.user_id
-    INNER JOIN blog_media ON posts.post_id = blog_media.post_id
-    WHERE blog_user.user_status = 1 AND  posts.post_status!=1 AND posts.post_status!=2 
-    AND (blog_user.user_name LIKE '".$key."%' 
+    $Poster_check=" AND (blog_user.user_name LIKE '".$key."%' 
     OR posts.post_title LIKE '".$key."%' 
     OR post_categorise.cat_name LIKE '".$key."%')";
   }
+  $Poster_sql="SELECT * FROM posts
+    INNER JOIN post_categorise ON posts.cat_id = post_categorise.cat_id
+    INNER JOIN blog_user ON blog_user.user_id = posts.user_id
+    INNER JOIN blog_media ON posts.post_id = blog_media.post_id
+    WHERE blog_user.user_status = 1 AND  posts.post_status!=1 AND posts.post_status!=2 ".$Poster_check;
   
   $result=$conn->query($Poster_sql);
   $post_details=[];
@@ -41,8 +37,6 @@
 
 <?php if(count($post_details)>0){ ?>
 <div class="block-container">
-
-
   <?php foreach ($post_details as $data){ ?>
   <div class="blog-block">
     <div class="blog-image">
@@ -71,11 +65,11 @@
         </ul>
       </div>
       </div>
-      
     </div>
   </div>
     <?php }?>
 </div>
 <?php }else{
-      echo"<div style='height:80vh;width:100%; display:grid; place-content:center; font-size:50px; font-weight: 600;'>No Post Found</div>";
-    } ?>
+      include("Not_Found.html");
+    } 
+?>

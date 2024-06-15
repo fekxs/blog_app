@@ -49,11 +49,6 @@
                 if($page!='PostView'){
                     echo "<script>open_post(0,404)</script>";
                 }
-                if($page=='PostView'){
-                    if($tr[0]=='User'){
-                        $page="404";
-                    }
-                }
                 if($page==''){
                     include('Dashboard.php');
                 }else{
@@ -61,7 +56,7 @@
                         include($page.".php");
                     }
                     else{
-                        echo "<div style='color:red;height:100%;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:70px'><ion-icon style='font-size:200px;' name='alert-circle-outline'></ion-icon>Page Not Found</div>";
+                        include("404.html");
                     }
                 }
             ?>

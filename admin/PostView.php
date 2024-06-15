@@ -48,5 +48,5 @@
 </div>
 <script>option_select(<?php echo  $Path;?>)</script>
 <?php }else{
-    echo "<div style='color:red;height:100%;width:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:70px'><ion-icon style='font-size:200px;' name='alert-circle-outline'></ion-icon>Page Not Found</div>";
+    include("404.html");
 }?>

@@ -24,7 +24,7 @@ $selection_sql="SELECT *
     $object=$conn->query($selection_sql);
     while($values=$object->fetch_assoc()){
 
-        $test_sql="SELECT * FROM reported_post WHERE post_id=".$values['post_id']." LIMIT 1;";
+        $test_sql="SELECT * FROM reported_post WHERE post_id=".$values['post_id']." AND ".$select." LIMIT 1;";
         $Result=$conn->query($test_sql)->fetch_assoc();
 
         $date=time_calculation($values['post_date']);
@@ -75,7 +75,7 @@ $selection_sql="SELECT *
         <h4  style="margin:0;">Reported by</h4>
         <ul style="margin:5px;">
         <?php
-        $post_sql="SELECT * FROM reported_post INNER JOIN blog_user ON blog_user.user_id=reported_post.user_id WHERE post_id=".$data['Post_ID'];
+        $post_sql="SELECT * FROM reported_post INNER JOIN blog_user ON blog_user.user_id=reported_post.user_id WHERE post_id=".$data['Post_ID']." AND ".$select ;
         $thedetails=$conn->query($post_sql);
         while($reporter=$thedetails->fetch_assoc()){
             echo "<li>".$reporter['user_name']."</li>";
@@ -93,6 +93,6 @@ $selection_sql="SELECT *
             <div style='height:200px;width:200px;  display:grid;place-items: center; font-size:120px;' class='bi-check-circle'></div>Responds Complete</div>";
         }
         else{
-            echo"<div style='height:50vh;width:100%; display:grid; place-content:center; font-size:50px; font-weight: 600;'>No Post Found</div>";
+            include("Not_Found.html");
         }
     } ?>
