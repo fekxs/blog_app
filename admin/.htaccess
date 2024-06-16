@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteBase /fekxs/Project%201%20Blog/blog_app/admin/
 
 # If the requested file or directory exists, serve it directly
 RewriteCond %{REQUEST_FILENAME} !-f

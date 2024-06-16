@@ -178,7 +178,7 @@ function open_post(Post_id,Path){
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
             if(Post_id!=0){
-                window.location+="/PostView";
+                window.location+="PostView";
             }else{
                 if(Path!=404){
                     url=window.location.href
