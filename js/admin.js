@@ -185,7 +185,7 @@ function open_post(Post_id,Path){
                     let segments = url.split('/');
                     segments.pop();
                     url = segments.join('/');
-                    window.location.href=url;
+                    window.location.href=url+"/";
                 }
             }
         } else {

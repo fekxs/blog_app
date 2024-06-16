@@ -1,7 +1,14 @@
 <?php
     $requestUri = trim($_SERVER['REQUEST_URI'], '/');
     $newq=explode("/blog_app",$requestUri);
+    $test=explode('/',$newq[0]);
+    $basepathpage=$test[0];
     $basepath="/".$newq[0];
+    if($basepathpage=="blog_app"){
+        $basepath='';
+    }
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
