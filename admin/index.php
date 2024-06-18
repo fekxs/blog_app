@@ -1,14 +1,7 @@
 <?php
     $requestUri = trim($_SERVER['REQUEST_URI'], '/');
-    $newq=explode("/blog_app",$requestUri);
-    $test=explode('/',$newq[0]);
-    $basepathpage=$test[0];
-    $basepath="/".$newq[0];
-    if($basepathpage=="blog_app"){
-        $basepath='';
-    }
-    
-    
+    $position = strpos($requestUri, "/admin");
+    $BaseURL = substr($requestUri, 0, $position + strlen("/admin"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +13,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <title>Admin Panel</title>
-    <?php echo "<base href='$basepath/blog_app/admin/'>" ?>
+    <?php echo "<base href='/$BaseURL/'>" ?>
     <link rel="stylesheet" href="../Style/Admin.css?v=<?php echo time()?>">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="../js/admin.js?v=<?php echo time()?>"></script>
