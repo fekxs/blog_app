@@ -119,11 +119,6 @@
 
             if($result->num_rows > 0) {
                 $data = $result->fetch_assoc();
-                $desc = explode('.', $data['post_detailed']);
-                $description = "";
-                foreach($desc as $data_t){
-                    $description .= $data_t . ".<br>";
-                }
     ?>
 
     <div class="post_view">
@@ -138,7 +133,7 @@
         </div>
         <div class="post_details">
             <img src="../../media/blogmedia/<?php echo $data['media_name']; ?>" alt="">
-            <p><?php echo $description; ?></p>                 
+            <p><?php echo $data['post_detailed']; ?></p>                 
         </div>
         <div class="post_footer">
             <b> Published on:  <?php echo date('d-m-Y', strtotime($data['post_date'])); ?></b>

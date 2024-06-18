@@ -590,6 +590,7 @@ html,body{
     width: 100%;
     height: fit-content;
     background-color: rgb(255, 255, 255);
+    font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -610,7 +611,10 @@ html,body{
 .post_details p{
     text-align: start;
     width: 80%;
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    white-space: pre-line;
 }
 .post_view .post_footer{
     width: 100%;

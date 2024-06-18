@@ -18,4 +18,8 @@
             return $interval->s . " second" . ($interval->s > 1 ? "s" : "") . " ago";
         }
     }
+    function page_find($object){
+        $page=['Dashboard','User','Posts','Reports'];
+        return array_search($object, $page);
+    }
     ?>
