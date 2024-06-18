@@ -1,3 +1,10 @@
+<?php 
+   session_start();
+   $_SESSION['email_id_stat']=false;
+   $_SESSION['email_id'] = NULL;
+   include('./database.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,7 +25,7 @@
             <div class="log-in">
                 <form action="" method="post">
                     <input name="Email" type="text" placeholder="email@domain.com">
-                    <input type="submit" value="Sign up with email">
+                    <input type="submit" name="submit" value="Sign up with email">
                     <h6>or continue with</h6>
                 </form>
             </div>
@@ -28,15 +35,18 @@
             </footer>
         </section>
         <?php 
-        if(isset($_POST['Email'])){
-            if($_POST['Email']!=''){
-                $_SESSION['loggedin']=true;
-                $_SESSION['user_id'] = 'user1';
-                header("Location: ../index.php");
-                exit();
-            }
-            else{
-                echo "<script>alert('Email cant be empty')</script>";
+        $email=filter_input(INPUT_POST,"Email",FILTER_SANITIZE_SPECIAL_CHARS);
+        if(isset($_POST["submit"])){
+            if(isset($_POST['Email']) && $_SESSION['email_id_stat']==false && $_SESSION['email_id'] == NULL){
+                if($_POST['Email']!=''){
+                    $_SESSION['email_id_stat']=true;
+                    $_SESSION['email_id'] = $email;
+                    header("Location: ./signup_main.php");
+                    exit();
+                }
+                else{
+                    echo "<script>alert('Email cant be empty')</script>";
+                }
             }
         }
         ?>

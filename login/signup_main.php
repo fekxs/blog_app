@@ -1,3 +1,7 @@
+<?php 
+   session_start();
+   include('./database.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <title>Registration Form</title>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../Style/login_style.css">
+    <link rel="stylesheet" href="../Style/signup_main.css">
 </head>
 <body>
     <div class="container-fluid">
@@ -22,17 +26,17 @@
                 <form>
                         <label style="margin-left: 220px;">Name</label><br>
                         <center>
-                        <input type="text" class="search__input" placeholder="e.g. elon mask" width="600px">
+                        <input type="text" name="name" class="search__input" placeholder="e.g. elon mask" width="600px">
                         </center>
                     <br>
                         <label  style="margin-left: 220px;">User Name</label><br>
                         <center>
-                        <input type="text" class="search__input" placeholder="e.g. elonmusk1971@gmail.com" width="600px">
+                        <input type="text" name="user_name" class="search__input" placeholder="e.g. elonmusk@1" width="600px">
                         </center>
                     <br>
                         <label  style="margin-left: 220px;">Password</label><br>
                         <center>
-                        <input type="password" class="search__input" placeholder="6+ character" width="600px">
+                        <input type="password" name="password" class="search__input" placeholder="6+ character" width="600px">
                         </center>
                     <br>
                     <br>
@@ -56,3 +60,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php 
+      if($_SERVER["REQUEST_METHOD"]=="POST")
+      {
+        $name=filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS);
+        $name=filter_input(INPUT_POST,"user_name",FILTER_SANITIZE_SPECIAL_CHARS);
+        $email=$SESSION["email_id"];
+        $password=filter_input(INPUT_POST,"password",FILTER_SANITIZE_SPECIAL_CHARS);
+      }
+?>

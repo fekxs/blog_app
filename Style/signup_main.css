@@ -46,7 +46,6 @@ body::before {
     float: left; /* Change float to left */
     padding: 30px;
     box-sizing: border-box;
-    background-color: lightblue;
 }
 .form-container h2 {
     text-align: center;
