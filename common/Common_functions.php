@@ -19,6 +19,9 @@
         }
     }
     function page_find($object){
+        if($object=="admin"){
+            return 0;
+        }
         $page=['Dashboard','User','Posts','Reports'];
         return array_search($object, $page);
     }
