@@ -171,7 +171,7 @@ function post_more_details(object){
 function open_post(Post_id,Path){
     var xhr = new XMLHttpRequest();
     if(Post_id!=0){
-        xhr.open('POST', 'Controls.php?Option=3&Post_id='+Post_id+"&Path="+Path, true);
+        xhr.open('POST', 'Controls.php?Option=3&Post_id='+Post_id, true);
     }else{
         xhr.open('POST', 'Controls.php?Option=4', true);
     }
@@ -180,6 +180,7 @@ function open_post(Post_id,Path){
             if(Post_id!=0){
                 window.location+="PostView";
             }else{
+                console.log("KK")
                 if(Path!=404){
                     url=window.location.href
                     let segments = url.split('/');

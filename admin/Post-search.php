@@ -61,7 +61,7 @@
                 echo "<li style='background-color: green;' onclick='post_visibility(".$data['Post_ID'].",0,0)'>Reactive</li>";
             }
              ?>
-          <li <?php echo 'onclick="open_post('.$data['Post_ID'].',2)"' ?> style="background-color: rgb(44, 128, 254);">View More</li>
+          <li <?php echo 'onclick="open_post('.$data['Post_ID'].')"' ?> style="background-color: rgb(44, 128, 254);">View More</li>
         </ul>
       </div>
       </div>

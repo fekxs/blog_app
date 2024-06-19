@@ -32,15 +32,11 @@ include '../common/db_connection.php';
     }
     else if($Option=='3'){
         $Post_id=$_GET['Post_id'];
-        $Recent_Path=$_GET['Path'];
         $_SESSION['Post']=$Post_id;
-        $_SESSION['Path']=$Recent_Path;
     }
     else if($Option=='4'){
         if(isset($_SESSION['Post'])){
             unset($_SESSION['Post']);
-        }else{
-            unset( $_SESSION['Path']);
         }
         
     }

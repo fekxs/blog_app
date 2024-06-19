@@ -1,22 +1,15 @@
 <?php
     include '../common/sessioncheck.php';
     include '../common/db_connection.php';
+    $len=count($tr);
+    $Path=page_find($tr[$len-2]);
     if(isset($_SESSION['Post'])){
         $Post_id=$_SESSION['Post'];
-        $Path=2;
-        if(isset($_SESSION['Path'])){
-            $Path=$_SESSION['Path'];
-        }
     $select_sql="SELECT * FROM posts 
         INNER JOIN blog_user ON blog_user.user_id=posts.user_id
         INNER JOIN blog_media ON blog_media.post_id=posts.post_id
         WHERE posts.post_id=$Post_id";
     $data=$conn->query($select_sql)->fetch_assoc();
-    $desc=explode('.',$data['post_detailed']);
-    $description="";
-    foreach( $desc as $data_t){
-        $description.=$data_t.".<br>";
-    }
 ?>
 
 <div class="post_view">
@@ -40,7 +33,7 @@
     <div class="post_details">
         <h6 style="<?php echo ($data['post_status']=='0')?"color:green;":"color:red;"?>">Current Status:<b> <?php echo ($data['post_status']=='0')?"Active":"Suspended"?></b></h6>
         <img src="../media/blogmedia/<?php echo $data['media_name']; ?>" alt="" srcset="">
-        <p><?php echo $description; ?></p>                 
+        <p><?php echo $data['post_detailed']; ?></p>                 
     </div>
     <div class="post_footer">
         <b> Published on:  <?php echo date('d-m-Y',strtotime($data['post_date'])); ?></b>
