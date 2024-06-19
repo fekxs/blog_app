@@ -178,22 +178,6 @@
 </head>
 
 <body>
-    <?php
-        include '../../common/sessioncheck.php';
-        include '../../common/db_connection.php';
-        if(isset($_GET['Post'])){ 
-            $Post_id=$_GET['Post']; 
-        
-            $select_sql="SELECT * FROM posts 
-                INNER JOIN blog_user ON blog_user.user_id=posts.user_id
-                INNER JOIN blog_media ON blog_media.post_id=posts.post_id
-                WHERE posts.post_id=$Post_id";
-            $result = $conn->query($select_sql);
-
-            if($result->num_rows > 0) {
-                $data = $result->fetch_assoc();
-    ?>
-
     <div class="post_view">
         <div class="post_header">
 
@@ -212,8 +196,8 @@
             </div>
         </div>
         <div class="post_details">
-            <img src="../../media/blogmedia/<?php echo $data['media_name']; ?>" alt="">
-            <p><?php echo $data['post_detailed']; ?></p>                 
+            <img src="../../media/blogmedia/<?php echo htmlspecialchars($data['media_name']); ?>" alt="">
+            <p><?php echo $description; ?></p>
         </div>
         <div class="post_footer">
             <b> Published on: <?php echo date('d-m-Y', strtotime($data['post_date'])); ?></b>
