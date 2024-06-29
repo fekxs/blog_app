@@ -23,15 +23,10 @@
                 <!-- Login form here -->
                 <h2>WELCOME</h2>
                 <br>
-                <form>
+                <form method="post">
                         <label style="margin-left: 220px;">Name</label><br>
                         <center>
                         <input type="text" name="name" class="search__input" placeholder="e.g. elon mask" width="600px">
-                        </center>
-                    <br>
-                        <label  style="margin-left: 220px;">User Name</label><br>
-                        <center>
-                        <input type="text" name="user_name" class="search__input" placeholder="e.g. elonmusk@1" width="600px">
                         </center>
                     <br>
                         <label  style="margin-left: 220px;">Password</label><br>
@@ -39,6 +34,9 @@
                         <input type="password" name="password" class="search__input" placeholder="6+ character" width="600px">
                         </center>
                     <br>
+                    <div class="text" style="margin-left: 220px;">
+                        <h6>Already have an account? <a href="./index.php">Login now</a></h6>
+                    </div>
                     <br>
                     <div class="form-group form-check">
                         <center>
@@ -64,8 +62,27 @@
       if($_SERVER["REQUEST_METHOD"]=="POST")
       {
         $name=filter_input(INPUT_POST,"name",FILTER_SANITIZE_SPECIAL_CHARS);
-        $name=filter_input(INPUT_POST,"user_name",FILTER_SANITIZE_SPECIAL_CHARS);
-        $email=$SESSION["email_id"];
+        if(isset($_SESSION["email_id"]))
+           $email=$_SESSION["email_id"];
+        else
+           echo"<h6 style='margin-left: 763px;color: red;margin-top:-150px;'>Please fill email field on the previous page</h6>";
         $password=filter_input(INPUT_POST,"password",FILTER_SANITIZE_SPECIAL_CHARS);
-      }
+        
+        if(isset($name) && isset($password) && isset($email))
+        {
+            try{
+                $hash=password_hash($password,PASSWORD_BCRYPT);
+       
+                $sql="INSERT INTO blog_user(user_name,user_email,user_password,user_status) VALUES('$name','$email','$hash',0)";
+       
+                mysqli_query($conn,$sql);
+       
+                echo"<h6 style='margin-left: 763px;color: green;margin-top:-150px;''>User regestered successfully</h6>"; 
+       
+               }catch(mysqli_sql_exception){
+       
+                echo"<h6 style='margin-left: 763px;color: red;margin-top:-150px;''>User already regestered</h6>"; 
+          }
+        }
+    }
 ?>
